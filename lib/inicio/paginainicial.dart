@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:porci/inicio/registroinicio.dart';
+import 'package:porci/inicio/sesion.dart';
 
 class inicio extends StatelessWidget {
 
@@ -149,7 +151,7 @@ class _iniState extends State<ini> {
                         child: TextButton(
                             onPressed: () {
                               Navigator.push(context, MaterialPageRoute(
-                                builder: (context)=>inicio(),
+                                builder: (context)=>formuiniciosesion(),
                               )
                               );
                               //action
@@ -186,7 +188,7 @@ class _iniState extends State<ini> {
       //color: Colors.cyanAccent,
 
       child: ElevatedButton.icon(onPressed: (){
-        Navigator.push(context, MaterialPageRoute(builder: (context)=>inicio()));
+        Navigator.push(context, MaterialPageRoute(builder: (context)=>formuiniciosesion()));
       },
         style: ButtonStyle(
           overlayColor: MaterialStateProperty.resolveWith<Color?>(
@@ -223,7 +225,7 @@ class _iniState extends State<ini> {
       //color: Colors.cyanAccent,
 
       child: ElevatedButton.icon(onPressed: (){
-        Navigator.push(context, MaterialPageRoute(builder: (context)=>inicio()));
+        Navigator.push(context, MaterialPageRoute(builder: (context)=>inicioregistro()));
       },
         style: ButtonStyle(
           overlayColor: MaterialStateProperty.resolveWith<Color?>(

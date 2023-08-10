@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:porci/inicio/paginainicial.dart';
-import 'package:porci/inicio/registroinicio.dart';
+import 'package:porci/inicio/sesion.dart';
 
-void iniciosesion() {
-  runApp(foriniciosesion());
+void registro() {
+  runApp(inicioregistro());
 }
 
-class foriniciosesion extends StatelessWidget {
+class inicioregistro extends StatelessWidget {
 
   MaterialColor mycolor = MaterialColor(Color.fromRGBO(229, 203, 206, 1).value, <int, Color>{
     50: Color.fromRGBO(229, 203, 206, 0.1),
@@ -29,37 +29,21 @@ class foriniciosesion extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: mycolor,
       ),
-      home: formuiniciosesion(),
+      home: forregistro(),
     );
   }
 }
 
-class formuiniciosesion extends StatefulWidget {
+class forregistro extends StatefulWidget {
 
   @override
-  State<formuiniciosesion> createState() => _formuiniciosesionState();
+  State<forregistro> createState() => _forregistroState();
 }
 
-class _formuiniciosesionState extends State<formuiniciosesion> {
+class _forregistroState extends State<forregistro> {
 
-
-
-  MaterialColor mycolor = MaterialColor(Color.fromRGBO(149, 149, 210, 1).value, <int, Color>{
-    50: Color.fromRGBO(149, 149, 210, 0.1),
-    100: Color.fromRGBO(149, 149, 210, 0.2),
-    200: Color.fromRGBO(149, 149, 210, 0.3),
-    300: Color.fromRGBO(149, 149, 210, 0.4),
-    400: Color.fromRGBO(149, 149, 210, 0.5),
-    500: Color.fromRGBO(149, 149, 210, 0.6),
-    600: Color.fromRGBO(149, 149, 210, 0.7),
-    700: Color.fromRGBO(149, 149, 210, 0.8),
-    800: Color.fromRGBO(149, 149, 210, 0.9),
-    900: Color.fromRGBO(149, 149, 210, 1),
-  },
-  );
 
   bool _isObscure = true;
-  bool _isObscure2 = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,34 +53,42 @@ class _formuiniciosesionState extends State<formuiniciosesion> {
           height: 851,
           decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage('img/iniciosesion.jpg'),
+                  image: AssetImage('img/registroinicio.jpg'),
                   fit: BoxFit.fill
               )
           ),
           child: Column(
             children: [
               Container(
-                width: 350,
-                height: 250,
-                margin: EdgeInsets.only(top: 110,left: 0,right: 0, bottom: 15),
+                width: 310,
+                height: 220,
+                margin: EdgeInsets.only(top: 135,left: 0,right: 0, bottom: 15),
                 decoration: BoxDecoration(
                     image: DecorationImage(
                         image: AssetImage('img/cerdito.gif'),
                         fit: BoxFit.cover
                     )
-
                 ),
               ),
               Container(
                 width: double.infinity,
-                height: 443,
-                margin: EdgeInsets.only(top: 15),
+                height: 472,
                 child: Column(
                   children: [
                     Form(
-                        //key: _formulario,
+                      //key: _formulario,
                         child: Column(
                           children: [
+                            Container(
+                              margin: EdgeInsets.only(top: 15,left: 60,right: 60),
+                              decoration: BoxDecoration(
+                                //gradient: LinearGradient(
+                                // colors: [Colors.white,Color.fromRGBO(150, 137, 166, 200)],
+                                //   stops: [0.3,0.9]
+                                // )
+                              ),
+                              child: documento(),
+                            ),
                             Container(
                               margin: EdgeInsets.only(top: 10,left: 60,right: 60),
                               decoration: BoxDecoration(
@@ -117,7 +109,7 @@ class _formuiniciosesionState extends State<formuiniciosesion> {
                                 //                                ),
 
                               ),
-                              child: contra(),
+                              child: correo(),
                             ),
                             Container(
                               margin: EdgeInsets.only(top: 10,left: 60,right: 60),
@@ -134,15 +126,15 @@ class _formuiniciosesionState extends State<formuiniciosesion> {
                                 child:Row(
                                   children: [
                                     Container(
-                                      margin: EdgeInsets.only(top: 50,left: 130),
+                                      margin: EdgeInsets.only(top: 35,left: 135),
                                       child: Center(
                                         child: ElevatedButton(onPressed: () {
                                           Navigator.push(context, MaterialPageRoute(
-                                            builder: (context)=>inicio(),
+                                            builder: (context)=>formuiniciosesion(),
                                           )
                                           );
                                           //action
-                                        } , child: Text('INICIAR SESION'),
+                                        }, child: Text('REGISTRARME'),
                                           style: ButtonStyle(
                                             overlayColor: MaterialStateProperty.resolveWith<Color?>(
                                                   (Set<MaterialState> states) {
@@ -159,10 +151,10 @@ class _formuiniciosesionState extends State<formuiniciosesion> {
                                 )
                             ),
                             Container(
-                              color: Color.fromRGBO(149, 149, 210, 0.3),
+                              color: Color.fromRGBO(246, 217, 202, 100),
                               width: double.infinity,
                               height: 2,
-                              margin: EdgeInsets.only(top: 78),
+                              margin: EdgeInsets.only(top: 46,left: 22,right: 20),
                             ),
                             Container(
                               child: Row(
@@ -172,12 +164,12 @@ class _formuiniciosesionState extends State<formuiniciosesion> {
                                     child: TextButton(
                                         onPressed: () {
                                           Navigator.push(context, MaterialPageRoute(
-                                            builder: (context)=>forregistro(),
+                                            builder: (context)=>formuiniciosesion(),
                                           )
                                           );
                                           //action
                                         },
-                                        child: Text(' NO TENGO UNA CUENTA !',
+                                        child: Text(' YA TENGO UNA CUENTA !',
                                           style: TextStyle(
                                               fontSize: 12,
                                               color: Color.fromRGBO(176, 196, 222, 0.9),
@@ -195,7 +187,7 @@ class _formuiniciosesionState extends State<formuiniciosesion> {
                                           );
                                           //action
                                         },
-                                        child: Text(' INICIO',
+                                        child: Text(' HOME',
                                           style: TextStyle(
                                               fontSize: 12,
                                               color: Color.fromRGBO(173, 216, 230, 0.9),
@@ -219,10 +211,45 @@ class _formuiniciosesionState extends State<formuiniciosesion> {
     );
   }
 
+  Container documento(){
+    return Container(
+      color: Colors.white,
+      height: 60,
+      child: TextFormField(
+        keyboardType: TextInputType.number,
+        style: TextStyle(
+          fontSize: 20,
+          color: Colors.black,
+        ),
+        decoration: InputDecoration(
+            prefixIcon: Icon(Icons.numbers,color: Color.fromRGBO(121, 101, 178, 100),size: 25),
+            hintText: 'Ingrese Id',
+            hintStyle: TextStyle(
+              fontSize: 20,
+              color: Colors.grey,
+            ),
+            labelText: 'DOCUMENTO',
+            labelStyle: TextStyle(
+              fontSize: 15,
+              color: Colors.grey,
+            )
+        ),
+        validator: (value){
+          if(value!.isEmpty){
+            return 'Por favor ingrese información';
+          }
+          return null;
+        },
+      ),
+    );
+  }
+
+
   Container usuario(){
     return Container(
       height: 60,
       child: TextFormField(
+
         keyboardType: TextInputType.name,
         style: TextStyle(
           fontSize: 20,
@@ -251,11 +278,46 @@ class _formuiniciosesionState extends State<formuiniciosesion> {
     );
   }
 
-
-  Container contra(){
+  Container correo(){
     return Container(
       height: 60,
       child: TextFormField(
+
+        keyboardType: TextInputType.emailAddress,
+        style: TextStyle(
+          fontSize: 20,
+          color: Colors.black,
+        ),
+        decoration: InputDecoration(
+
+            prefixIcon: Icon(Icons.attach_email_outlined,color: Color.fromRGBO(121, 101, 178, 100),size: 25),
+            hintText: 'Ingrese Correo',
+            hintStyle: TextStyle(
+              fontSize: 20,
+              color: Colors.grey,
+            ),
+            labelText: 'CORREO',
+            labelStyle: TextStyle(
+              fontSize: 15,
+              color: Colors.grey,
+            )
+        ),
+        validator: (value){
+          if(value!.isEmpty){
+            return 'Por favor ingrese información';
+          }
+          return null;
+        },
+      ),
+    );
+  }
+
+  Container contra2(){
+
+    return Container(
+      height: 60,
+      child: TextFormField(
+
         keyboardType: TextInputType.name,
         style: TextStyle(
           fontSize: 20,
@@ -276,49 +338,6 @@ class _formuiniciosesionState extends State<formuiniciosesion> {
               onPressed: () {
                 setState(() {
                   _isObscure = !_isObscure;
-                });
-              }),
-          labelStyle: TextStyle(
-            fontSize: 15,
-            color: Colors.grey,
-          ),
-
-        ),
-        validator: (value){
-          if(value!.isEmpty){
-            return 'Por favor ingrese información';
-          }
-          return null;
-        },
-      ),
-    );
-  }
-
-  Container contra2(){
-    return Container(
-      height: 60,
-      child: TextFormField(
-
-        keyboardType: TextInputType.name,
-        style: TextStyle(
-          fontSize: 20,
-          color: Colors.black,
-        ),
-        obscureText: _isObscure2,
-        decoration: InputDecoration(
-          // prefixIcon: Icon(Icons.password_sharp,color: Color.fromRGBO(150, 137, 166, 50),size: 35),
-          hintText: 'Ingrese Contraseña',
-          hintStyle: TextStyle(
-            fontSize: 20,
-            color: Colors.grey,
-          ),
-          labelText: 'CONTRASEÑA',
-          suffixIcon: IconButton(
-              icon: Icon(
-                  _isObscure2 ? Icons.visibility : Icons.visibility_off),
-              onPressed: () {
-                setState(() {
-                  _isObscure2 = !_isObscure2;
                 });
               }),
           labelStyle: TextStyle(

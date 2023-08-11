@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:porci/inicio/paginainicial.dart';
 import 'package:porci/inicio/sesion.dart';
+import 'package:porci/services/firebase_service.dart';
 
 void registro() {
   runApp(inicioregistro());
 }
 
 class inicioregistro extends StatelessWidget {
+
+
 
   MaterialColor mycolor = MaterialColor(Color.fromRGBO(229, 203, 206, 1).value, <int, Color>{
     50: Color.fromRGBO(229, 203, 206, 0.1),
@@ -42,6 +45,10 @@ class forregistro extends StatefulWidget {
 
 class _forregistroState extends State<forregistro> {
 
+  TextEditingController documentocontroller=TextEditingController(text: "");
+  TextEditingController usuariocontroller=TextEditingController(text: "");
+  TextEditingController correocontroller=TextEditingController(text: "");
+  TextEditingController contrasenacontroller=TextEditingController(text: "");
 
   bool _isObscure = true;
   @override
@@ -128,7 +135,8 @@ class _forregistroState extends State<forregistro> {
                                     Container(
                                       margin: EdgeInsets.only(top: 35,left: 135),
                                       child: Center(
-                                        child: ElevatedButton(onPressed: () {
+                                        child: ElevatedButton(onPressed: () async {
+                                          await addPeople(documentocontroller.text,usuariocontroller.text,correocontroller.text,contrasenacontroller.text);
                                           Navigator.push(context, MaterialPageRoute(
                                             builder: (context)=>formuiniciosesion(),
                                           )
@@ -216,7 +224,8 @@ class _forregistroState extends State<forregistro> {
       color: Colors.white,
       height: 60,
       child: TextFormField(
-        keyboardType: TextInputType.number,
+        controller: documentocontroller,
+        keyboardType: TextInputType.name,
         style: TextStyle(
           fontSize: 20,
           color: Colors.black,
@@ -249,7 +258,7 @@ class _forregistroState extends State<forregistro> {
     return Container(
       height: 60,
       child: TextFormField(
-
+        controller: usuariocontroller,
         keyboardType: TextInputType.name,
         style: TextStyle(
           fontSize: 20,
@@ -282,7 +291,7 @@ class _forregistroState extends State<forregistro> {
     return Container(
       height: 60,
       child: TextFormField(
-
+        controller: correocontroller,
         keyboardType: TextInputType.emailAddress,
         style: TextStyle(
           fontSize: 20,
@@ -317,7 +326,7 @@ class _forregistroState extends State<forregistro> {
     return Container(
       height: 60,
       child: TextFormField(
-
+        controller: contrasenacontroller,
         keyboardType: TextInputType.name,
         style: TextStyle(
           fontSize: 20,
@@ -335,7 +344,7 @@ class _forregistroState extends State<forregistro> {
           suffixIcon: IconButton(
               icon: Icon(
                   _isObscure ? Icons.visibility : Icons.visibility_off),
-              onPressed: () {
+              onPressed: ()  {
                 setState(() {
                   _isObscure = !_isObscure;
                 });

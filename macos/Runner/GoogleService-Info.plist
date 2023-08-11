@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>350516041508-6t48046c82c3t6ja47ujfsr9tabs9tta.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.350516041508-6t48046c82c3t6ja47ujfsr9tabs9tta</string>
+	<key>API_KEY</key>
+	<string>AIzaSyA6syQlLS5SHYZsLVToApJ5bVIjAtV4QP0</string>
+	<key>GCM_SENDER_ID</key>
+	<string>350516041508</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.porci.RunnerTests</string>
+	<key>PROJECT_ID</key>
+	<string>porcino-44a0f</string>
+	<key>STORAGE_BUCKET</key>
+	<string>porcino-44a0f.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:350516041508:ios:caebcd7dc813e95dcb05b1</string>
+</dict>
+</plist>

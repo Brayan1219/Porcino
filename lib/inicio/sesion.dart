@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:porci/inicio/paginainicial.dart';
 import 'package:porci/inicio/registroinicio.dart';
 
+import '../services/firebase_service.dart';
+
 void iniciosesion() {
   runApp(foriniciosesion());
 }
@@ -42,7 +44,8 @@ class formuiniciosesion extends StatefulWidget {
 
 class _formuiniciosesionState extends State<formuiniciosesion> {
 
-
+  TextEditingController correocontroller=TextEditingController(text: "");
+  TextEditingController contrasenacontroller=TextEditingController(text: "");
 
   MaterialColor mycolor = MaterialColor(Color.fromRGBO(149, 149, 210, 1).value, <int, Color>{
     50: Color.fromRGBO(149, 149, 210, 0.1),
@@ -120,23 +123,16 @@ class _formuiniciosesionState extends State<formuiniciosesion> {
                               child: contra(),
                             ),
                             Container(
-                              margin: EdgeInsets.only(top: 10,left: 60,right: 60),
-                              decoration: BoxDecoration(
-                                //gradient: LinearGradient(
-                                //  colors: [Colors.white,Color.fromRGBO(150, 137, 166, 200)],
-//                                      stops: [0.3,0.9]
-                                //                                ),
-
-                              ),
-                              child: contra2(),
-                            ),
-                            Container(
                                 child:Row(
                                   children: [
                                     Container(
                                       margin: EdgeInsets.only(top: 50,left: 130),
                                       child: Center(
-                                        child: ElevatedButton(onPressed: () {
+                                        child: ElevatedButton(onPressed: () async {
+                                          await signInWithDocumentAndPassword(
+                                            correocontroller.text,
+                                            contrasenacontroller.text,
+                                          );
                                           Navigator.push(context, MaterialPageRoute(
                                             builder: (context)=>inicio(),
                                           )
@@ -223,6 +219,7 @@ class _formuiniciosesionState extends State<formuiniciosesion> {
     return Container(
       height: 60,
       child: TextFormField(
+        controller: correocontroller,
         keyboardType: TextInputType.name,
         style: TextStyle(
           fontSize: 20,
@@ -256,6 +253,7 @@ class _formuiniciosesionState extends State<formuiniciosesion> {
     return Container(
       height: 60,
       child: TextFormField(
+        controller: contrasenacontroller,
         keyboardType: TextInputType.name,
         style: TextStyle(
           fontSize: 20,
@@ -276,49 +274,6 @@ class _formuiniciosesionState extends State<formuiniciosesion> {
               onPressed: () {
                 setState(() {
                   _isObscure = !_isObscure;
-                });
-              }),
-          labelStyle: TextStyle(
-            fontSize: 15,
-            color: Colors.grey,
-          ),
-
-        ),
-        validator: (value){
-          if(value!.isEmpty){
-            return 'Por favor ingrese información';
-          }
-          return null;
-        },
-      ),
-    );
-  }
-
-  Container contra2(){
-    return Container(
-      height: 60,
-      child: TextFormField(
-
-        keyboardType: TextInputType.name,
-        style: TextStyle(
-          fontSize: 20,
-          color: Colors.black,
-        ),
-        obscureText: _isObscure2,
-        decoration: InputDecoration(
-          // prefixIcon: Icon(Icons.password_sharp,color: Color.fromRGBO(150, 137, 166, 50),size: 35),
-          hintText: 'Ingrese Contraseña',
-          hintStyle: TextStyle(
-            fontSize: 20,
-            color: Colors.grey,
-          ),
-          labelText: 'CONTRASEÑA',
-          suffixIcon: IconButton(
-              icon: Icon(
-                  _isObscure2 ? Icons.visibility : Icons.visibility_off),
-              onPressed: () {
-                setState(() {
-                  _isObscure2 = !_isObscure2;
                 });
               }),
           labelStyle: TextStyle(
